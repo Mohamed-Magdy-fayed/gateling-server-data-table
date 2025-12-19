@@ -1,0 +1,301 @@
+import type { Option } from "@/types/data-table";
+
+export type TaskStatus =
+  | "backlog"
+  | "todo"
+  | "in-progress"
+  | "review"
+  | "blocked"
+  | "done";
+
+export type TaskPriority = "low" | "medium" | "high" | "critical";
+
+export interface Task {
+  id: string;
+  title: string;
+  status: TaskStatus;
+  priority: TaskPriority;
+  assignee: string;
+  dueDate: string;
+  estimatedHours: number;
+  completedPercentage: number;
+}
+
+export const TASK_STATUS_OPTIONS: Option[] = [
+  { label: "Backlog", value: "backlog" },
+  { label: "To do", value: "todo" },
+  { label: "In progress", value: "in-progress" },
+  { label: "In review", value: "review" },
+  { label: "Blocked", value: "blocked" },
+  { label: "Done", value: "done" },
+];
+
+export const TASK_PRIORITY_OPTIONS: Option[] = [
+  { label: "Low", value: "low" },
+  { label: "Medium", value: "medium" },
+  { label: "High", value: "high" },
+  { label: "Critical", value: "critical" },
+];
+
+export const TASK_ASSIGNEES: Option[] = [
+  { label: "Alex Chen", value: "alex" },
+  { label: "Carmen Reyes", value: "carmen" },
+  { label: "Jordan Blake", value: "jordan" },
+  { label: "Morgan Patel", value: "morgan" },
+  { label: "Priya Nair", value: "priya" },
+  { label: "Ryan Walters", value: "ryan" },
+  { label: "Taylor Jones", value: "taylor" },
+];
+
+export const TASKS: Task[] = [
+  {
+    id: "T-1001",
+    title: "Design onboarding flow",
+    status: "in-progress",
+    priority: "high",
+    assignee: "alex",
+    dueDate: "2025-10-05",
+    estimatedHours: 24,
+    completedPercentage: 65,
+  },
+  {
+    id: "T-1002",
+    title: "Implement onboarding API",
+    status: "review",
+    priority: "critical",
+    assignee: "carmen",
+    dueDate: "2025-10-10",
+    estimatedHours: 32,
+    completedPercentage: 85,
+  },
+  {
+    id: "T-1003",
+    title: "QA test onboarding",
+    status: "todo",
+    priority: "medium",
+    assignee: "jordan",
+    dueDate: "2025-10-18",
+    estimatedHours: 18,
+    completedPercentage: 0,
+  },
+  {
+    id: "T-1004",
+    title: "Draft release notes",
+    status: "backlog",
+    priority: "low",
+    assignee: "morgan",
+    dueDate: "2025-11-01",
+    estimatedHours: 6,
+    completedPercentage: 0,
+  },
+  {
+    id: "T-1005",
+    title: "Accessibility audit",
+    status: "in-progress",
+    priority: "high",
+    assignee: "priya",
+    dueDate: "2025-10-22",
+    estimatedHours: 28,
+    completedPercentage: 40,
+  },
+  {
+    id: "T-1006",
+    title: "Marketing landing page",
+    status: "blocked",
+    priority: "critical",
+    assignee: "ryan",
+    dueDate: "2025-10-15",
+    estimatedHours: 30,
+    completedPercentage: 25,
+  },
+  {
+    id: "T-1007",
+    title: "Database schema review",
+    status: "review",
+    priority: "medium",
+    assignee: "alex",
+    dueDate: "2025-10-17",
+    estimatedHours: 12,
+    completedPercentage: 70,
+  },
+  {
+    id: "T-1008",
+    title: "Migrate CI pipeline",
+    status: "done",
+    priority: "high",
+    assignee: "carmen",
+    dueDate: "2025-09-30",
+    estimatedHours: 20,
+    completedPercentage: 100,
+  },
+  {
+    id: "T-1009",
+    title: "Content strategy update",
+    status: "todo",
+    priority: "low",
+    assignee: "taylor",
+    dueDate: "2025-11-05",
+    estimatedHours: 10,
+    completedPercentage: 0,
+  },
+  {
+    id: "T-1010",
+    title: "Customer interviews",
+    status: "in-progress",
+    priority: "medium",
+    assignee: "morgan",
+    dueDate: "2025-10-25",
+    estimatedHours: 16,
+    completedPercentage: 50,
+  },
+  {
+    id: "T-1011",
+    title: "Analytics instrumentation",
+    status: "backlog",
+    priority: "high",
+    assignee: "priya",
+    dueDate: "2025-11-12",
+    estimatedHours: 22,
+    completedPercentage: 0,
+  },
+  {
+    id: "T-1012",
+    title: "Legal review",
+    status: "blocked",
+    priority: "medium",
+    assignee: "ryan",
+    dueDate: "2025-10-28",
+    estimatedHours: 14,
+    completedPercentage: 10,
+  },
+  {
+    id: "T-1013",
+    title: "Experiment framework",
+    status: "in-progress",
+    priority: "critical",
+    assignee: "alex",
+    dueDate: "2025-10-12",
+    estimatedHours: 36,
+    completedPercentage: 55,
+  },
+  {
+    id: "T-1014",
+    title: "Support playbook",
+    status: "todo",
+    priority: "medium",
+    assignee: "taylor",
+    dueDate: "2025-10-30",
+    estimatedHours: 8,
+    completedPercentage: 0,
+  },
+  {
+    id: "T-1015",
+    title: "Infrastructure cost audit",
+    status: "review",
+    priority: "high",
+    assignee: "jordan",
+    dueDate: "2025-10-08",
+    estimatedHours: 26,
+    completedPercentage: 80,
+  },
+  {
+    id: "T-1016",
+    title: "Update design tokens",
+    status: "done",
+    priority: "medium",
+    assignee: "priya",
+    dueDate: "2025-09-25",
+    estimatedHours: 15,
+    completedPercentage: 100,
+  },
+  {
+    id: "T-1017",
+    title: "SEO audit",
+    status: "todo",
+    priority: "low",
+    assignee: "morgan",
+    dueDate: "2025-11-18",
+    estimatedHours: 9,
+    completedPercentage: 0,
+  },
+  {
+    id: "T-1018",
+    title: "Performance profiling",
+    status: "in-progress",
+    priority: "critical",
+    assignee: "carmen",
+    dueDate: "2025-10-06",
+    estimatedHours: 34,
+    completedPercentage: 60,
+  },
+  {
+    id: "T-1019",
+    title: "Refactor auth module",
+    status: "blocked",
+    priority: "high",
+    assignee: "jordan",
+    dueDate: "2025-10-20",
+    estimatedHours: 40,
+    completedPercentage: 35,
+  },
+  {
+    id: "T-1020",
+    title: "Customer success training",
+    status: "backlog",
+    priority: "medium",
+    assignee: "taylor",
+    dueDate: "2025-11-08",
+    estimatedHours: 18,
+    completedPercentage: 0,
+  },
+  {
+    id: "T-1021",
+    title: "Integrate billing provider",
+    status: "in-progress",
+    priority: "critical",
+    assignee: "alex",
+    dueDate: "2025-10-19",
+    estimatedHours: 45,
+    completedPercentage: 30,
+  },
+  {
+    id: "T-1022",
+    title: "Run NPS survey",
+    status: "todo",
+    priority: "medium",
+    assignee: "morgan",
+    dueDate: "2025-10-27",
+    estimatedHours: 7,
+    completedPercentage: 0,
+  },
+  {
+    id: "T-1023",
+    title: "Finalize Q4 roadmap",
+    status: "review",
+    priority: "high",
+    assignee: "priya",
+    dueDate: "2025-10-04",
+    estimatedHours: 20,
+    completedPercentage: 90,
+  },
+  {
+    id: "T-1024",
+    title: "Deploy feature flags",
+    status: "done",
+    priority: "critical",
+    assignee: "ryan",
+    dueDate: "2025-09-21",
+    estimatedHours: 12,
+    completedPercentage: 100,
+  },
+  {
+    id: "T-1025",
+    title: "Sales enablement assets",
+    status: "backlog",
+    priority: "low",
+    assignee: "taylor",
+    dueDate: "2025-11-25",
+    estimatedHours: 11,
+    completedPercentage: 0,
+  },
+];
