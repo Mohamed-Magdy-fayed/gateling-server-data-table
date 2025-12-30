@@ -3,17 +3,16 @@ import { CheckSquare, Square } from "lucide-react";
 
 import { DataTableColumnHeader } from "@/components/data-table/data-table-column-header";
 import { Badge } from "@/components/ui/badge";
-import { cn } from "@/lib/utils";
-import { formatDate } from "@/lib/format";
-import type { DataTableColumnsContext, Option } from "@/types/data-table";
-
+import type { TaskCounts } from "@/features/tasks/actions";
 import {
   TASK_ASSIGNEES,
   TASK_PRIORITY_OPTIONS,
   TASK_STATUS_OPTIONS,
   type Task,
 } from "@/features/tasks/data";
-import type { TaskCounts } from "@/features/tasks/actions";
+import { formatDate } from "@/lib/format";
+import { cn } from "@/lib/utils";
+import type { DataTableColumnsContext, Option } from "@/types/data-table";
 
 export function getTaskColumns(
   context: DataTableColumnsContext<TaskCounts>,
@@ -91,9 +90,7 @@ export function getTaskColumns(
       header: ({ column }) => (
         <DataTableColumnHeader column={column} title="Title" />
       ),
-      cell: ({ row }) => (
-        <span className="font-medium">{row.original.title}</span>
-      ),
+      cell: ({ row }) => <span className="font-medium">{row.original.title}</span>,
       enableColumnFilter: true,
       meta: {
         label: "Search title",
@@ -126,9 +123,8 @@ export function getTaskColumns(
       ),
       cell: ({ row }) => (
         <Badge variant={priorityVariant(row.original.priority)}>
-          {priorityOptions.find(
-            (option) => option.value === row.original.priority,
-          )?.label ?? row.original.priority}
+          {priorityOptions.find((option) => option.value === row.original.priority)
+            ?.label ?? row.original.priority}
         </Badge>
       ),
       enableColumnFilter: true,
@@ -182,9 +178,7 @@ export function getTaskColumns(
         <DataTableColumnHeader column={column} title="Estimate" />
       ),
       cell: ({ row }) => (
-        <span className="font-mono text-sm">
-          {row.original.estimatedHours}h
-        </span>
+        <span className="font-mono text-sm">{row.original.estimatedHours}h</span>
       ),
       enableColumnFilter: true,
       meta: {

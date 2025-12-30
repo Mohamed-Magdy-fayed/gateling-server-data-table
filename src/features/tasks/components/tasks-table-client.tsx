@@ -1,8 +1,8 @@
 "use client";
 
-import * as React from "react";
 import type { ColumnDef, Table } from "@tanstack/react-table";
 import { Loader2, Plus, Trash } from "lucide-react";
+import * as React from "react";
 
 import { DataTable } from "@/components/data-table/data-table";
 import { DataTableToolbar } from "@/components/data-table/data-table-toolbar";
@@ -12,16 +12,15 @@ import {
   useDataTableContext,
 } from "@/data-table/components/data-table-provider";
 import type { ServerDataTableLoadResult } from "@/data-table/lib/server-table";
-import { useDataTable } from "@/hooks/use-data-table";
-import { getTaskColumns } from "@/features/tasks/columns";
-
 import type {
+  DeleteTasksInput,
   TaskCounts,
   TaskFilters,
   TaskTableMeta,
-  DeleteTasksInput,
 } from "@/features/tasks/actions";
+import { getTaskColumns } from "@/features/tasks/columns";
 import type { Task } from "@/features/tasks/data";
+import { useDataTable } from "@/hooks/use-data-table";
 
 interface TasksTableClientProps
   extends ServerDataTableLoadResult<
@@ -29,7 +28,7 @@ interface TasksTableClientProps
     TaskFilters,
     TaskCounts,
     TaskTableMeta
-  > {}
+  > { }
 
 export function TasksTableClient(props: TasksTableClientProps) {
   const columns = React.useMemo<ColumnDef<Task, unknown>[]>(() => {

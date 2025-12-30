@@ -1,4 +1,3 @@
-import type React from "react";
 import type {
   ColumnDef,
   ColumnSort,
@@ -6,6 +5,7 @@ import type {
   RowData,
   TableState,
 } from "@tanstack/react-table";
+import type React from "react";
 
 import type { DataTableConfig } from "@/config/data-table";
 import type { FilterItemSchema } from "@/lib/parsers";
@@ -133,6 +133,4 @@ export interface DataTableColumnsContext<TCounts = Record<string, unknown>> {
 
 export type DataTableColumnsFactory<TData, TCounts = Record<string, unknown>> =
   | ColumnDef<TData, unknown>[]
-  | ((
-      context: DataTableColumnsContext<TCounts>,
-    ) => ColumnDef<TData, unknown>[]);
+  | ((context: DataTableColumnsContext<TCounts>) => ColumnDef<TData, unknown>[]);

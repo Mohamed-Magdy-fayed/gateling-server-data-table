@@ -1,8 +1,8 @@
 import {
-  TASKS,
   TASK_ASSIGNEES,
   TASK_PRIORITY_OPTIONS,
   TASK_STATUS_OPTIONS,
+  TASKS,
   type Task,
 } from "@/features/tasks/data";
 import type {
@@ -42,23 +42,20 @@ export async function transformTaskFilters(
     status:
       Array.isArray(filters.status) && filters.status.length > 0
         ? filters.status.filter(
-            (value): value is string =>
-              typeof value === "string" && value.length > 0,
-          )
+          (value): value is string => typeof value === "string" && value.length > 0,
+        )
         : undefined,
     priority:
       Array.isArray(filters.priority) && filters.priority.length > 0
         ? filters.priority.filter(
-            (value): value is string =>
-              typeof value === "string" && value.length > 0,
-          )
+          (value): value is string => typeof value === "string" && value.length > 0,
+        )
         : undefined,
     assignee:
       Array.isArray(filters.assignee) && filters.assignee.length > 0
         ? filters.assignee.filter(
-            (value): value is string =>
-              typeof value === "string" && value.length > 0,
-          )
+          (value): value is string => typeof value === "string" && value.length > 0,
+        )
         : undefined,
   } satisfies TaskFilters;
 }
@@ -83,13 +80,11 @@ export async function fetchTasks(
     averageCompletion:
       filtered.length > 0
         ? Number(
-            (
-              filtered.reduce(
-                (total, task) => total + task.completedPercentage,
-                0,
-              ) / filtered.length
-            ).toFixed(2),
-          )
+          (
+            filtered.reduce((total, task) => total + task.completedPercentage, 0) /
+            filtered.length
+          ).toFixed(2),
+        )
         : 0,
   };
 

@@ -1,0 +1,24 @@
+{
+	"servers": {
+		"shadcn": {
+			"command": "npx",
+			"args": [
+				"shadcn@latest",
+				"mcp"
+			]
+		},
+		"next-devtools": {
+			"command": "npx",
+			"args": [
+				"-y",
+				"next-devtools-mcp@latest"
+			]
+		},
+		"drizzle": {
+			"command": "npx",
+			"args": [
+				"github:defrex/drizzle-mcp",
+			]
+		}
+	}
+}
